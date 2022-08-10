@@ -15,7 +15,7 @@ class paper:
         paper.tk.canvas = tkinter.Canvas(paper.tk)
         paper.tk.canvas.pack(fill=BOTH, expand=1)
 
-class Shape() :
+class Shape :
 
     def __init__(self, width=50, height=50, x=None, y=None, color=black):
         """
