@@ -15,7 +15,7 @@ class paper:
         paper.tk.canvas = tkinter.Canvas(paper.tk)
         paper.tk.canvas.pack(fill=BOTH, expand=1)
 
-class Shape:
+class Shape() :
 
     def __init__(self, width=50, height=50, x=None, y=None, color=black):
         """
@@ -31,19 +31,3 @@ class Shape:
         """
         if Paper.tk is None:
             raise Exception("A Paper object has not been created. There is nothing to draw on.")
-
-        #Set some attributes
-        self.height = height
-        self.width = width
-        self.color = color
-
-        #Put the shape in the centre if no xy coords were given
-        if x is None:
-            self.x = (Paper.tk.paper_width/2) - (self.width/2)
-        else:
-            slef.x = x
-        if y is None:
-            self.y = (Paper.tk.paper_height/2) - (self.height/2)
-        else:
-            self.y = y
-
