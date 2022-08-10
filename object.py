@@ -31,3 +31,16 @@ class Shape :
         """
         if Paper.tk is None:
             raise Exception("A Paper object has not been created. There is nothing to draw on.")
+
+        # This is an internal method not meant to be called by users
+        # (It has a _ before the method name to show this)
+        def _location(self):
+            """
+            Internal method used by the class to get the location of the shape.
+            This shouldn't be called by users, hence why its name begins with an underscore
+            """
+        x1 = self.x
+        y1 = self.y
+        x2 = self.x + self.width
+        y2 = self.y + self.height
+        return [x1, y1, x2, y2]
