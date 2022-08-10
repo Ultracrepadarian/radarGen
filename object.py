@@ -1,4 +1,5 @@
 import tkinter
+import random
 from tkinter import BOTH
 
 
@@ -15,6 +16,12 @@ class paper:
         paper.tk.canvas = tkinter.Canvas(paper.tk)
         paper.tk.canvas.pack(fill=BOTH, expand=1)
 
+    def display(self):
+        """
+        Displays the paper
+        """
+        paper.tk.mainloop()
+
 class Shape() :
 
     def __init__(self, width=50, height=50, x=None, y=None, color=black):
@@ -29,5 +36,21 @@ class Shape() :
             y (int): The y position of the shape. If None, the y position will be the middle of the screen. Defaults to None.
             color (string): The color of the shape. Defaults to "black"
         """
-        if Paper.tk is None:
+        if paper.tk is None:
             raise Exception("A Paper object has not been created. There is nothing to draw on.")
+        self.height = height
+        self.width = width
+        self.color = color
+
+        self.x = (paper.tk.paper_width/2) - (self.width/2)
+        self.y = (paper.tk.paper_height/2) - (self.height/2)
+        self.x = x
+        self.y = y
+    def _location(self):
+        x1 = self.x
+        y1 = self.y
+        x2 = self.x + self.width
+        y2 = self.y + self.height
+        return [x1,y1,x2,y2]
+    def setColor(self, color):
+        self.color = color
